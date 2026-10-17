@@ -1,0 +1,38 @@
+// Auto-generated prebuilt APEX Blueprint for external/lua
+// Staged from Extractive APEX package: ext-lua (org.blisslabs.ag.ext.lua)
+
+package {
+    default_applicable_licenses: ["external_lua_license"],
+}
+
+license {
+    name: "external_lua_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-MIT",
+    ],
+    license_text: [
+        "LICENSE",
+    ],
+}
+
+cc_prebuilt_library_static {
+    name: "liblua",
+    sdk_version: "current",
+    min_sdk_version: "30",
+    srcs: ["lib/liblua.a"],
+    export_include_dirs: [
+        "include",
+        "src",
+    ],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.extservices",
+        "com.android.car.framework",
+    ],
+    visibility: [
+        "//external/libtextclassifier:__subpackages__",
+        "//packages/services/Car/cpp/telemetry:__subpackages__",
+        "//packages/services/Car/packages/ScriptExecutor:__subpackages__",
+    ],
+}
